@@ -1,0 +1,34 @@
+{
+  "name": "@treehub/space",
+  "version": "0.0.0",
+  "description": "A Space API",
+  "main": "src/Space.js",
+  "scripts": {
+    "test": "mocha \"src/*.test.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/treehub-com/space.git"
+  },
+  "keywords": [],
+  "author": "John Clark <socrates37@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/treehub-com/space/issues"
+  },
+  "homepage": "https://github.com/treehub-com/space#readme",
+  "devDependencies": {
+    "chai": "3.5.0",
+    "eslint": "3.19.0",
+    "eslint-config-google": "0.7.1",
+    "memdown": "1.2.4",
+    "mocha": "3.3.0",
+    "uuid": "3.0.1"
+  },
+  "dependencies": {
+    "@treehub/level": "0.2.1",
+    "graphql": "0.9.6",
+    "graphql-tools": "0.11.0",
+    "trepo-core": "0.2.1"
+  }
+}
