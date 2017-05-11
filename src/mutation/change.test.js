@@ -22,11 +22,9 @@ describe('change', () => {
       }`,
       variables: {
         cid: 0,
-        changes: [{
-          type: 'put',
-          key: 'tree:test',
-          value: {id: 'test', name: 'test'},
-        }],
+        changes: [
+          ['tree:test', {id: 'test', name: 'test'}],
+        ],
       },
     });
     expect(response).to.have.all.keys('data');

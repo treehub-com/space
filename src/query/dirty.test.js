@@ -32,20 +32,18 @@ describe('dirty', () => {
     });
 
     const response = await space.request({
-      query: `query ($num: Int){
-        x: dirty(num: $num)
+      query: `query ($limit: Int){
+        x: dirty(limit: $limit)
       }`,
       variables: {
-        num: 10,
+        limit: 10,
       },
     });
     expect(response).to.have.all.keys('data');
     expect(response.data).to.have.all.keys('x');
     const data = response.data.x;
-    expect(data).to.deep.equal([{
-      type: 'put',
-      key: 'tree:test',
-      value: {id: 'test', name: 'test'},
-    }]);
+    expect(data).to.deep.equal([
+      ['tree:test', {id: 'test', name: 'test'}],
+    ]);
   });
 });

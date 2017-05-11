@@ -35,7 +35,7 @@ const typeDefs = [
   // Root Queries
   `type Query {
     changes(cid: Int!): JSON
-    dirty(num: Int): JSON
+    dirty(limit: Int): JSON
     tree(id: String): Tree
     trees: [Tree!]!
   }`,
