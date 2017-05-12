@@ -45,7 +45,7 @@ class Space {
         deleteTree: this._deleteTree.bind(this),
       }, // ctx
       variables,
-      operationName,
+      operationName
     );
   }
 
