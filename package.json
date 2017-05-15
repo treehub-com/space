@@ -4,7 +4,7 @@
   "description": "A Space API",
   "main": "src/Space.js",
   "scripts": {
-    "test": "mocha \"src/*.test.js\""
+    "test": "mocha \"src/**/*.test.js\""
   },
   "repository": {
     "type": "git",
@@ -28,7 +28,6 @@
   "dependencies": {
     "@treehub/level": "0.3.0",
     "graphql": "0.9.6",
-    "graphql-tools": "0.11.0",
-    "trepo-core": "0.4.0"
+    "trepo-core": "0.4.1"
   }
 }
