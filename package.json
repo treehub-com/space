@@ -1,6 +1,6 @@
 {
   "name": "@treehub/space",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "A Space API",
   "main": "src/Space.js",
   "scripts": {
