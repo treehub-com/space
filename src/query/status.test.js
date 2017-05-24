@@ -5,7 +5,7 @@ const Space = require('../Space.js');
 
 let space;
 
-describe('dirty', () => {
+describe('status', () => {
   beforeEach(async () => {
     space = new Space({
       name: 'test',
