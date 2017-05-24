@@ -2,6 +2,8 @@ const {parse, buildASTSchema} = require('graphql');
 
 const resolvers = {
   Query: {
+    // Status
+    status: require('./query/status.js'),
     // Sync
     changes: require('./query/changes.js'),
     dirty: require('./query/dirty.js'),
@@ -34,6 +36,7 @@ const typeDefs = [
   }`,
   // Root Queries
   `type Query {
+    status: Status
     changes(cid: Int!): JSON
     dirty(limit: Int): JSON
     tree(id: String): Tree
@@ -54,6 +57,17 @@ const typeDefs = [
     key: String
     # The error message, suitable for display
     message: String!
+  }`,
+  `type Status {
+    id: String!
+    mode: String!
+    cid: Int!
+    trees: [TreeStatus]!
+  }`,
+  `type TreeStatus {
+    id: String!
+    lastCommit: String
+    dirty: Boolean!
   }`,
   `type Tree {
     id: String!

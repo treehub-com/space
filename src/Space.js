@@ -41,8 +41,11 @@ class Space {
       query,
       {}, // root
       {
-        space,
         deleteTree: this._deleteTree.bind(this),
+        mode: this.mode,
+        name: this.name,
+        space,
+        trees: this._trees,
       }, // ctx
       variables,
       operationName
