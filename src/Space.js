@@ -1,7 +1,7 @@
 const {graphql} = require('graphql');
 const Level = require('@treehub/level');
 const schema = require('./schema.js');
-const Trepo = require('trepo-core');
+const Trepo = require('@trepo/core');
 
 class Space {
   constructor({name, prefix, backend, mode}) {
