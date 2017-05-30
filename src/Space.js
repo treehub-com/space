@@ -44,8 +44,8 @@ class Space {
         deleteTree: this._deleteTree.bind(this),
         mode: this.mode,
         name: this.name,
+        request: this.request.bind(this),
         space,
-        trees: this._trees,
       }, // ctx
       variables,
       operationName

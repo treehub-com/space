@@ -16,7 +16,6 @@ describe('status', () => {
   });
 
   it('should return the status', async () => {
-    // Create tree and get info from it so we load it
     await space.request({
       query: `mutation ($input: CreateTreeInput!) {
         x: createTree(input: $input) {
@@ -30,16 +29,6 @@ describe('status', () => {
           name: 'test',
         },
       },
-    });
-    await space.request({
-      tree: 'test-tree',
-      query: `query {
-        info {
-          repo
-          lastCommit
-          dirty
-        }
-      }`,
     });
 
     const response = await space.request({

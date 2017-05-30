@@ -1,4 +1,4 @@
-module.exports = async (_, obj, {mode, name, space, trees}) => {
+module.exports = async (_, obj, {mode, name, request, space}) => {
   const response = {
     id: name,
     cid: space.CID,
@@ -6,14 +6,17 @@ module.exports = async (_, obj, {mode, name, space, trees}) => {
     trees: [],
   };
 
+  const trees = await space.values({gt: 'tree:', lte: 'tree:\uffff'});
+
   const promises = [];
 
-  for (const id of Object.keys(trees)) {
-    promises.push(trees[id].request({
+  for (const tree of trees) {
+    promises.push(request({
+      tree: tree.id,
       query: 'query {info {dirty lastCommit} }',
     }).then((res) => {
       const info = res.data.info;
-      info.id = id;
+      info.id = tree.id;
       return info;
     }));
   }
