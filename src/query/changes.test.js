@@ -33,7 +33,7 @@ describe('changes', () => {
 
     const response = await space.request({
       query: `query ($cid: Int!){
-        x: changes(cid: $cid)
+        x: changes(cid: $cid, limit: 100)
       }`,
       variables: {
         cid: 0,
