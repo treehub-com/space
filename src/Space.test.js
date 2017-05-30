@@ -5,7 +5,7 @@ const Space = require('./Space.js');
 
 let space;
 
-describe('dirty', () => {
+describe('space', () => {
   beforeEach(async () => {
     space = new Space({
       name: 'test-space',
@@ -68,5 +68,50 @@ describe('dirty', () => {
     } catch (error) {
       expect(error.code).to.equal(404);
     }
+
+    // Ensure we cleanup properly from our deferred open code
+    try {
+      await space.request({
+        tree: 'test-tree',
+        query: `query {
+          info {
+            repo
+            lastCommit
+            dirty
+          }
+        }`,
+      });
+      throw new Error('should have errored');
+    } catch (error) {
+      expect(error.code).to.equal(404);
+    }
+  });
+
+  it('should handle simultaneous initial calls properly', async () => {
+    const responses = await Promise.all([
+      space.request({
+        query: `query {
+          status {
+            id
+            cid
+            mode
+            trees {id dirty lastCommit}
+          }
+        }`,
+      }),
+      space.request({
+        query: `query {
+          status {
+            id
+            cid
+            mode
+            trees {id dirty lastCommit}
+          }
+        }`,
+      }),
+    ]);
+
+    expect(responses[0].errors).to.equal(undefined);
+    expect(responses[1].errors).to.equal(undefined);
   });
 });

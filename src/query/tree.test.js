@@ -5,7 +5,7 @@ const Space = require('../Space.js');
 
 let space;
 
-describe('createTree', () => {
+describe('tree', () => {
   beforeEach(async () => {
     space = new Space({
       name: 'test',
@@ -48,7 +48,7 @@ describe('createTree', () => {
     expect(data).to.deep.equal({id: 'test', name: 'test'});
   });
 
-  it('should return nulll when tree not found', async () => {
+  it('should return null when tree not found', async () => {
     const response = await space.request({
       query: `query ($id: String){
         x: tree(id: $id) {
