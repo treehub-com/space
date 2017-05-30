@@ -28,6 +28,6 @@
   "dependencies": {
     "@treehub/level": "0.3.0",
     "graphql": "0.9.6",
-    "@trepo/core": "0.6.0"
+    "@trepo/core": "0.6.1"
   }
 }
